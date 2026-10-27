@@ -1,0 +1,55 @@
+{
+  "simulated_auth.log": {
+    "type": "auth",
+    "expected_alerts": [
+      {
+        "rule": "brute_force",
+        "source_ip": "203.0.113.5"
+      },
+      {
+        "rule": "password_spraying",
+        "source_ip": "198.51.100.9"
+      },
+      {
+        "rule": "compromise_indicator",
+        "source_ip": "203.0.113.77"
+      }
+    ],
+    "expected_no_alert": [
+      "192.0.2.20",
+      "192.0.2.21"
+    ]
+  },
+  "simulated_access.log": {
+    "type": "http",
+    "expected_alerts": [
+      {
+        "rule": "scanning",
+        "source_ip": "198.51.100.23"
+      },
+      {
+        "rule": "unauthorized_access",
+        "source_ip": "203.0.113.44"
+      }
+    ],
+    "expected_no_alert": [
+      "192.0.2.10",
+      "192.0.2.11",
+      "192.0.2.12",
+      "192.0.2.13"
+    ]
+  },
+  "simulated_network.log": {
+    "type": "network",
+    "expected_alerts": [
+      {
+        "rule": "port_scan",
+        "source_ip": "203.0.113.99"
+      }
+    ],
+    "expected_no_alert": [
+      "192.0.2.30",
+      "192.0.2.60"
+    ]
+  }
+}

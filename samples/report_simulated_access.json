@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-10-24T12:02:15+00:00",
+  "lines_processed": 109,
+  "lines_unparsed": 0,
+  "total_alerts": 2,
+  "alerts": [
+    {
+      "rule_name": "scanning",
+      "severity": "Medium",
+      "source_ip": "198.51.100.23",
+      "start_time": "2026-10-24T10:15:00+00:00",
+      "end_time": "2026-10-24T10:15:29+00:00",
+      "event_count": 30,
+      "description": "30 HTTP 404 responses from 198.51.100.23 within 60 seconds"
+    },
+    {
+      "rule_name": "unauthorized_access",
+      "severity": "High",
+      "source_ip": "203.0.113.44",
+      "start_time": "2026-10-24T10:25:00+00:00",
+      "end_time": "2026-10-24T10:25:22+00:00",
+      "event_count": 10,
+      "description": "10 HTTP 401/403 responses from 203.0.113.44 within 60 seconds"
+    }
+  ]
+}

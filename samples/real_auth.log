@@ -1,0 +1,87 @@
+2026-10-25T16:05:36.140608+00:00 ubantu-target systemd-logind[928]: New seat seat0.
+2026-10-25T16:05:36.140611+00:00 ubantu-target systemd-logind[928]: Watching system buttons on /dev/input/event0 (Power Button)
+2026-10-25T16:05:36.140614+00:00 ubantu-target systemd-logind[928]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+2026-10-25T16:05:36.140652+00:00 ubantu-target polkitd[901]: Loading rules from directory /etc/polkit-1/rules.d
+2026-10-25T16:05:36.140658+00:00 ubantu-target polkitd[901]: Loading rules from directory /usr/share/polkit-1/rules.d
+2026-10-25T16:05:36.140671+00:00 ubantu-target polkitd[901]: Finished loading, compiling and executing 6 rules
+2026-10-25T16:05:36.140681+00:00 ubantu-target polkitd[901]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+2026-10-25T16:05:36.140802+00:00 ubantu-target sshd[1073]: Server listening on 0.0.0.0 port 22.
+2026-10-25T16:05:36.140809+00:00 ubantu-target sshd[1073]: Server listening on :: port 22.
+2026-10-25T16:05:47.181619+00:00 ubantu-target login[1202]: PAM unable to dlopen(pam_lastlog.so): /usr/lib/security/pam_lastlog.so: cannot open shared object file: No such file or directory
+2026-10-25T16:05:47.181802+00:00 ubantu-target login[1202]: PAM adding faulty module: pam_lastlog.so
+2026-10-25T16:05:53.076828+00:00 ubantu-target login[1202]: pam_unix(login:session): session opened for user vishal(uid=1000) by vishal(uid=0)
+2026-10-25T16:05:53.115197+00:00 ubantu-target systemd-logind[928]: New session 1 of user vishal.
+2026-10-25T16:05:53.148395+00:00 ubantu-target (systemd): pam_unix(systemd-user:session): session opened for user vishal(uid=1000) by vishal(uid=0)
+2026-10-25T16:15:01.060630+00:00 ubantu-target CRON[2280]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-10-25T16:15:01.066912+00:00 ubantu-target CRON[2280]: pam_unix(cron:session): session closed for user root
+2026-10-25T16:17:01.074718+00:00 ubantu-target CRON[2287]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-10-25T16:17:01.083116+00:00 ubantu-target CRON[2287]: pam_unix(cron:session): session closed for user root
+2026-10-25T16:17:31.636187+00:00 ubantu-target sudo:   vishal : TTY=tty1 ; PWD=/home/vishal ; USER=root ; COMMAND=/usr/bin/tail -n 5 /var/log/auth.log
+2026-10-25T16:17:31.640183+00:00 ubantu-target sudo: pam_unix(sudo:session): session opened for user root(uid=0) by vishal(uid=1000)
+2026-10-25T16:17:31.647740+00:00 ubantu-target sudo: pam_unix(sudo:session): session closed for user root
+2026-10-25T16:18:26.448632+00:00 ubantu-target sshd[2304]: Invalid user testuser from 192.168.44.128 port 60098
+2026-10-25T16:18:37.696774+00:00 ubantu-target sshd[2304]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:18:37.697317+00:00 ubantu-target sshd[2304]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.44.128 
+2026-10-25T16:18:39.792601+00:00 ubantu-target sshd[2304]: Failed password for invalid user testuser from 192.168.44.128 port 60098 ssh2
+2026-10-25T16:19:26.636097+00:00 ubantu-target sshd[2304]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:19:27.788896+00:00 ubantu-target sshd[2304]: Failed password for invalid user testuser from 192.168.44.128 port 60098 ssh2
+2026-10-25T16:19:30.354527+00:00 ubantu-target sshd[2304]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:19:33.056507+00:00 ubantu-target sshd[2304]: Failed password for invalid user testuser from 192.168.44.128 port 60098 ssh2
+2026-10-25T16:19:34.348789+00:00 ubantu-target sshd[2304]: Connection closed by invalid user testuser 192.168.44.128 port 60098 [preauth]
+2026-10-25T16:19:34.348985+00:00 ubantu-target sshd[2304]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.44.128 
+2026-10-25T16:19:44.078902+00:00 ubantu-target sudo:   vishal : TTY=tty1 ; PWD=/home/vishal ; USER=root ; COMMAND=/usr/bin/grep sshd /var/log/auth.log
+2026-10-25T16:19:44.081291+00:00 ubantu-target sudo: pam_unix(sudo:session): session opened for user root(uid=0) by vishal(uid=1000)
+2026-10-25T16:19:44.084075+00:00 ubantu-target sudo: pam_unix(sudo:session): session closed for user root
+2026-10-25T16:25:01.094583+00:00 ubantu-target CRON[2331]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-10-25T16:25:01.099912+00:00 ubantu-target CRON[2331]: pam_unix(cron:session): session closed for user root
+2026-10-25T16:27:54.754302+00:00 ubantu-target sshd[2335]: Invalid user admin from 192.168.44.128 port 53362
+2026-10-25T16:27:54.758060+00:00 ubantu-target sshd[2335]: Received disconnect from 192.168.44.128 port 53362:11: Bye Bye [preauth]
+2026-10-25T16:27:54.758238+00:00 ubantu-target sshd[2335]: Disconnected from invalid user admin 192.168.44.128 port 53362 [preauth]
+2026-10-25T16:27:55.068209+00:00 ubantu-target sshd[2340]: Invalid user admin from 192.168.44.128 port 53388
+2026-10-25T16:27:55.068623+00:00 ubantu-target sshd[2339]: Invalid user admin from 192.168.44.128 port 53378
+2026-10-25T16:27:55.073149+00:00 ubantu-target sshd[2338]: Invalid user admin from 192.168.44.128 port 53374
+2026-10-25T16:27:55.073221+00:00 ubantu-target sshd[2340]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:27:55.073245+00:00 ubantu-target sshd[2340]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.44.128 
+2026-10-25T16:27:55.074082+00:00 ubantu-target sshd[2339]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:27:55.074361+00:00 ubantu-target sshd[2339]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.44.128 
+2026-10-25T16:27:55.074691+00:00 ubantu-target sshd[2338]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:27:55.074798+00:00 ubantu-target sshd[2338]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.44.128 
+2026-10-25T16:27:55.090953+00:00 ubantu-target sshd[2337]: Invalid user admin from 192.168.44.128 port 53370
+2026-10-25T16:27:55.095122+00:00 ubantu-target sshd[2337]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:27:55.095360+00:00 ubantu-target sshd[2337]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.44.128 
+2026-10-25T16:27:57.103531+00:00 ubantu-target sshd[2340]: Failed password for invalid user admin from 192.168.44.128 port 53388 ssh2
+2026-10-25T16:27:57.104211+00:00 ubantu-target sshd[2339]: Failed password for invalid user admin from 192.168.44.128 port 53378 ssh2
+2026-10-25T16:27:57.105281+00:00 ubantu-target sshd[2338]: Failed password for invalid user admin from 192.168.44.128 port 53374 ssh2
+2026-10-25T16:27:57.126302+00:00 ubantu-target sshd[2337]: Failed password for invalid user admin from 192.168.44.128 port 53370 ssh2
+2026-10-25T16:27:58.573730+00:00 ubantu-target sshd[2340]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:27:58.583783+00:00 ubantu-target sshd[2338]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:27:58.584142+00:00 ubantu-target sshd[2339]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:27:58.596347+00:00 ubantu-target sshd[2337]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:28:00.685049+00:00 ubantu-target sshd[2340]: Failed password for invalid user admin from 192.168.44.128 port 53388 ssh2
+2026-10-25T16:28:00.694854+00:00 ubantu-target sshd[2338]: Failed password for invalid user admin from 192.168.44.128 port 53374 ssh2
+2026-10-25T16:28:00.695366+00:00 ubantu-target sshd[2339]: Failed password for invalid user admin from 192.168.44.128 port 53378 ssh2
+2026-10-25T16:28:00.708046+00:00 ubantu-target sshd[2337]: Failed password for invalid user admin from 192.168.44.128 port 53370 ssh2
+2026-10-25T16:28:02.076274+00:00 ubantu-target sshd[2340]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:28:02.086758+00:00 ubantu-target sshd[2339]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:28:02.097713+00:00 ubantu-target sshd[2338]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:28:02.108695+00:00 ubantu-target sshd[2337]: pam_unix(sshd:auth): check pass; user unknown
+2026-10-25T16:28:04.403264+00:00 ubantu-target sshd[2340]: Failed password for invalid user admin from 192.168.44.128 port 53388 ssh2
+2026-10-25T16:28:04.412175+00:00 ubantu-target sshd[2339]: Failed password for invalid user admin from 192.168.44.128 port 53378 ssh2
+2026-10-25T16:28:04.424512+00:00 ubantu-target sshd[2338]: Failed password for invalid user admin from 192.168.44.128 port 53374 ssh2
+2026-10-25T16:28:04.433030+00:00 ubantu-target sshd[2337]: Failed password for invalid user admin from 192.168.44.128 port 53370 ssh2
+2026-10-25T16:28:05.580128+00:00 ubantu-target sshd[2340]: Connection closed by invalid user admin 192.168.44.128 port 53388 [preauth]
+2026-10-25T16:28:05.580242+00:00 ubantu-target sshd[2340]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.44.128 
+2026-10-25T16:28:05.592426+00:00 ubantu-target sshd[2339]: Connection closed by invalid user admin 192.168.44.128 port 53378 [preauth]
+2026-10-25T16:28:05.592817+00:00 ubantu-target sshd[2339]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.44.128 
+2026-10-25T16:28:05.603410+00:00 ubantu-target sshd[2338]: Connection closed by invalid user admin 192.168.44.128 port 53374 [preauth]
+2026-10-25T16:28:05.603512+00:00 ubantu-target sshd[2338]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.44.128 
+2026-10-25T16:28:05.614278+00:00 ubantu-target sshd[2337]: Connection closed by invalid user admin 192.168.44.128 port 53370 [preauth]
+2026-10-25T16:28:05.614570+00:00 ubantu-target sshd[2337]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.44.128 
+2026-10-25T16:29:06.810013+00:00 ubantu-target sudo:   vishal : TTY=tty1 ; PWD=/home/vishal ; USER=root ; COMMAND=/usr/bin/grep -c 'Failed password' /var/log/auth.log
+2026-10-25T16:29:06.811958+00:00 ubantu-target sudo: pam_unix(sudo:session): session opened for user root(uid=0) by vishal(uid=1000)
+2026-10-25T16:29:06.822140+00:00 ubantu-target sudo: pam_unix(sudo:session): session closed for user root
+2026-10-25T16:29:19.751188+00:00 ubantu-target sudo:   vishal : TTY=tty1 ; PWD=/home/vishal ; USER=root ; COMMAND=/usr/bin/grep 'Failed password' /var/log/auth.log
+2026-10-25T16:29:19.752191+00:00 ubantu-target sudo: pam_unix(sudo:session): session opened for user root(uid=0) by vishal(uid=1000)
+2026-10-25T16:29:19.757271+00:00 ubantu-target sudo: pam_unix(sudo:session): session closed for user root
+2026-10-25T16:31:09.881419+00:00 ubantu-target sudo:   vishal : TTY=tty1 ; PWD=/home/vishal ; USER=root ; COMMAND=/usr/bin/cp /var/log/auth.log /home/vishal/auth_lab.log
+2026-10-25T16:31:09.883964+00:00 ubantu-target sudo: pam_unix(sudo:session): session opened for user root(uid=0) by vishal(uid=1000)

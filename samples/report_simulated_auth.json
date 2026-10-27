@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-10-24T12:02:15+00:00",
+  "lines_processed": 34,
+  "lines_unparsed": 0,
+  "total_alerts": 3,
+  "alerts": [
+    {
+      "rule_name": "brute_force",
+      "severity": "High",
+      "source_ip": "203.0.113.5",
+      "start_time": "2026-10-24T10:05:00",
+      "end_time": "2026-10-24T10:07:15",
+      "event_count": 10,
+      "description": "10 failed SSH logins from 203.0.113.5 within 300 seconds"
+    },
+    {
+      "rule_name": "password_spraying",
+      "severity": "High",
+      "source_ip": "198.51.100.9",
+      "start_time": "2026-10-24T10:12:00",
+      "end_time": "2026-10-24T10:14:00",
+      "event_count": 5,
+      "description": "5 distinct usernames received failed login attempts from 198.51.100.9 within 600 seconds"
+    },
+    {
+      "rule_name": "compromise_indicator",
+      "severity": "Critical",
+      "source_ip": "203.0.113.77",
+      "start_time": "2026-10-24T10:20:00",
+      "end_time": "2026-10-24T10:25:00",
+      "event_count": 7,
+      "description": "Successful SSH login from 203.0.113.77 after 6 failed logins within 600 seconds"
+    }
+  ]
+}
