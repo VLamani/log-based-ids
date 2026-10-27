@@ -3,16 +3,84 @@
 ## Pipeline
 
 ```mermaid
-flowchart LR
-  A[Log file<br/>auth, access, network] --> B[Parser]
-  A -. --follow .-> F[Follower<br/>new complete lines]
-  F --> B
-  B --> C[Events<br/>normalized to UTC]
-  C --> D[Alert manager<br/>allowlist check]
-  D --> E[Detectors<br/>six rules]
-  E --> G[Alert manager<br/>cooldown]
-  G --> H[Reporter<br/>text, JSON, exit code]
+flowchart TB
+  subgraph IN["Inputs"]
+    L1["SSH auth log"]
+    L2["Nginx or Apache access log"]
+    L3["Network event file"]
+  end
+
+  subgraph ING["Ingestion"]
+    BR["Batch reader: whole file"]
+    FW["Live follower: --follow"]
+  end
+
+  subgraph PARSE["Parsers"]
+    P1["auth parser: classic and ISO syslog, repeat expansion"]
+    P2["access parser: combined format"]
+    P3["network parser: four fields"]
+  end
+
+  CFG["config.yaml: thresholds, windows, severities, allowlist, cooldown"]
+
+  subgraph ENG["Detection engine"]
+    AL["Allowlist check"]
+    subgraph RULES["Six detection rules"]
+      R1["brute_force"]
+      R2["password_spraying"]
+      R3["compromise_indicator"]
+      R4["scanning"]
+      R5["unauthorized_access"]
+      R6["port_scan"]
+    end
+    CD["Cooldown per rule and source"]
+  end
+
+  subgraph OUT["Output"]
+    O1["Console report"]
+    O2["JSON report"]
+    O3["Exit code: 1 if High or Critical"]
+  end
+
+  L1 --> BR
+  L2 --> BR
+  L3 --> BR
+  L1 -.-> FW
+  L2 -.-> FW
+  BR --> P1
+  BR --> P2
+  BR --> P3
+  FW --> P1
+  FW --> P2
+  FW --> P3
+  P1 --> AL
+  P2 --> AL
+  P3 --> AL
+  CFG --> RULES
+  AL --> R1
+  AL --> R2
+  AL --> R3
+  AL --> R4
+  AL --> R5
+  AL --> R6
+  R1 --> CD
+  R2 --> CD
+  R3 --> CD
+  R4 --> CD
+  R5 --> CD
+  R6 --> CD
+  CD --> O1
+  CD --> O2
+  CD --> O3
 ```
+
+Processing happens in five stages:
+
+1. **Inputs.** Three log types: SSH auth logs, web access logs, and the custom network-event format.
+2. **Ingestion.** Batch mode reads the whole file. Live mode (`--follow`) reads only new complete lines.
+3. **Parsing.** Each line becomes an event with a UTC timestamp, or is counted as unparsed. Repeat markers from rsyslog are expanded into separate events.
+4. **Detection.** Each event passes the allowlist check, then the six rules. The rules read their thresholds and windows from `config.yaml`.
+5. **Output.** Alerts are de-duplicated by the cooldown, then written as a console report, a JSON report, and an exit code.
 
 ## Components
 

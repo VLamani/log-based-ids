@@ -4,6 +4,63 @@ A Python command-line tool that analyzes SSH authentication logs, Nginx/Apache a
 
 > **Scope:** This is a log analyzer, not a packet sniffer, endpoint agent, SIEM, or production monitoring service. It reads one local file at a time. Validate the rules and thresholds against your environment before relying on alerts operationally.
 
+## Overview
+
+This diagram shows the whole project: the lab that generates real logs, the detector that analyzes them, and how the detector was tested. The detector's internals are in [docs/architecture.md](docs/architecture.md).
+
+```mermaid
+flowchart LR
+  subgraph LAB["Lab on VMware"]
+    KALI["Kali attacker: Hydra and curl"]
+    subgraph TARGET["Ubuntu target"]
+      SSHD["OpenSSH server"]
+      NGINX["Nginx web server"]
+      AUTHLOG["auth.log"]
+      ACCLOG["access.log"]
+    end
+  end
+
+  KALI -->|SSH login attempts| SSHD
+  KALI -->|HTTP requests| NGINX
+  SSHD --> AUTHLOG
+  NGINX --> ACCLOG
+
+  subgraph TOOL["IDS-Detector: Python CLI"]
+    PARSE["Parsers"]
+    RULES["Six detection rules"]
+    ALERTS["Alerts with cooldown"]
+    PARSE --> RULES --> ALERTS
+  end
+
+  AUTHLOG -->|copied for batch analysis| PARSE
+  AUTHLOG -.->|live follow on the target| PARSE
+  ACCLOG -->|copied for batch analysis| PARSE
+
+  ALERTS --> OUT["Console report, JSON report, exit code"]
+
+  SIM["Simulator: scripts/simulate_attacks.py"] --> SAMPLES["Labeled sample logs"]
+  SAMPLES --> PARSE
+  TESTS["Test suite: 131 tests"] -.-> TOOL
+
+  classDef attacker fill:#fecaca,stroke:#b91c1c,color:#000
+  classDef target fill:#c7d2fe,stroke:#4338ca,color:#000
+  classDef logfile fill:#fde68a,stroke:#b45309,color:#000
+  classDef tool fill:#bbf7d0,stroke:#15803d,color:#000
+  classDef output fill:#e9d5ff,stroke:#7e22ce,color:#000
+  classDef support fill:#e2e8f0,stroke:#475569,color:#000
+
+  class KALI attacker
+  class SSHD,NGINX target
+  class AUTHLOG,ACCLOG logfile
+  class PARSE,RULES,ALERTS tool
+  class OUT output
+  class SIM,SAMPLES,TESTS support
+
+  style LAB fill:#eff6ff,stroke:#1d4ed8,color:#000
+  style TARGET fill:#eef2ff,stroke:#4338ca,color:#000
+  style TOOL fill:#f0fdf4,stroke:#15803d,color:#000
+```
+
 ## Features
 
 - SSH brute-force detection
