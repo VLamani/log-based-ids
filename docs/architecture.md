@@ -72,6 +72,29 @@ flowchart TB
   CD --> O1
   CD --> O2
   CD --> O3
+
+  classDef logfile fill:#fde68a,stroke:#b45309,color:#000
+  classDef ingest fill:#bfdbfe,stroke:#1d4ed8,color:#000
+  classDef parse fill:#a5f3fc,stroke:#0e7490,color:#000
+  classDef config fill:#fef9c3,stroke:#a16207,color:#000
+  classDef engine fill:#bbf7d0,stroke:#15803d,color:#000
+  classDef rule fill:#fed7aa,stroke:#c2410c,color:#000
+  classDef output fill:#e9d5ff,stroke:#7e22ce,color:#000
+
+  class L1,L2,L3 logfile
+  class BR,FW ingest
+  class P1,P2,P3 parse
+  class CFG config
+  class AL,CD engine
+  class R1,R2,R3,R4,R5,R6 rule
+  class O1,O2,O3 output
+
+  style IN fill:#fffbeb,stroke:#b45309,color:#000
+  style ING fill:#eff6ff,stroke:#1d4ed8,color:#000
+  style PARSE fill:#ecfeff,stroke:#0e7490,color:#000
+  style ENG fill:#f0fdf4,stroke:#15803d,color:#000
+  style RULES fill:#fff7ed,stroke:#c2410c,color:#000
+  style OUT fill:#faf5ff,stroke:#7e22ce,color:#000
 ```
 
 Processing happens in five stages:
